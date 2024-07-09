@@ -132,24 +132,6 @@ body {
     display: none !important;
 }
 
-.swal2-title {
-    text-align: left; 
-    margin-top: 20px;
-}
-
-#swal2-html-container {
-    text-align: left; 
-    margin-bottom: 20px;
-}
-
-.swal2-checkbox label {
-    margin: 0 !important;
-}
-
-.swal2-checkbox input {
-    float: right;
-}
-
 /* Responsive Design */
 
 @media (max-width: 1200px) {

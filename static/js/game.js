@@ -128,6 +128,21 @@ function displayTimerValue() {
     timer.textContent = timerValue;
 }
 
+function copyScore() {
+    var gameUrl = window.location.origin + '/game';
+    var score = localStorage.getItem('timerValue');
+    var message = "I scored " + score + " in the match voice game. Try it out here: " + gameUrl;
+
+    var tempInput = document.createElement("input");
+    tempInput.value = message;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+
+    CopyAlert();
+}
+
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -148,12 +163,19 @@ function OptionsAlert(){
         position: "top",
         title: "Options",
         html: `
-            <div class="swal2-checkbox">
-                <label for="custom-checkbox">Study only starred terms</label>
-                <input type="checkbox" id="custom-checkbox">
-            </div>
+            <p>Try to finish the game as fast as possible</p>
         `,
         showCloseButton: true,
         showConfirmButton: false,
+    });
+}
+
+function CopyAlert(){
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Link copied to clipboard!",
+        showConfirmButton: false,
+        timer: 1500
     });
 }
