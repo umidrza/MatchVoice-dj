@@ -131,14 +131,14 @@ function displayTimerValue() {
 function copyScore() {
     var gameUrl = window.location.origin + '/game';
     var score = localStorage.getItem('timerValue');
-    var message = "I scored " + score + " in the match voice game. Try it out here: " + gameUrl;
+    var message = `I scored ${score} in the match voice game. Try it out here: ${gameUrl}`
 
-    var tempInput = document.createElement("input");
-    tempInput.value = message;
-    document.body.appendChild(tempInput);
-    tempInput.select();
+    var tempTextArea = document.createElement("textarea");
+    tempTextArea.value = message;
+    document.body.appendChild(tempTextArea);
+    tempTextArea.select();
     document.execCommand("copy");
-    document.body.removeChild(tempInput);
+    document.body.removeChild(tempTextArea);
 
     CopyAlert();
 }
@@ -158,17 +158,6 @@ function getCookie(name) {
     return cookieValue;
 }
 
-function OptionsAlert(){
-    Swal.fire({
-        position: "top",
-        title: "Options",
-        html: `
-            <p>Try to finish the game as fast as possible</p>
-        `,
-        showCloseButton: true,
-        showConfirmButton: false,
-    });
-}
 
 function CopyAlert(){
     Swal.fire({
