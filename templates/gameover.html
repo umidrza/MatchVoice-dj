@@ -31,14 +31,13 @@
                         </div>
                     </div>
                 {% endfor %}
-                
             </div>
         </div>
     </div>
 </div>
 <div class="fixed-footer">
     <button class="sharescore-btn" onclick="copyScore()">Share your score</button>
-    <a href="{% url 'game:matchvoice' %}"><button class="playagain-btn">Play again</button></a>
+    <a href="{% url 'game:matchvoice' best_user_score.wordset.id %}"><button class="playagain-btn">Play again</button></a>
 </div>
 
 {% endblock main %}

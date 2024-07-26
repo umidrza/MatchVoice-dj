@@ -105,12 +105,12 @@ function gameOver(){
     const formData = new FormData();
     formData.append('new_score', elapsedTime);
 
-    fetch('/game/gameover/', {
+    fetch(window.location.href + 'gameover/', {
         method: 'POST',
         body: formData,
         headers: { 'X-CSRFToken': csrftoken }})
     .then(() => {
-        window.location.href = '/game/gameover/';
+        window.location.href += 'gameover/';
     });
 }
 
@@ -129,7 +129,7 @@ function displayTimerValue() {
 }
 
 function copyScore() {
-    var gameUrl = window.location.origin + '/game';
+    var gameUrl = window.location.href;
     var score = localStorage.getItem('timerValue');
     var message = `I scored ${score} in the match voice game. Try it out here: ${gameUrl}`
 
